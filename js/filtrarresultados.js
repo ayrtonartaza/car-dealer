@@ -3,6 +3,7 @@ const year = document.getElementById('year')
 const estado = document.getElementById('estado')
 const puertas = document.getElementById('puertas')
 
+const limpiarfiltros = document.getElementById('limpiarfiltros')
 
 window.addEventListener('load',evenlisteners);
 function evenlisteners (){
@@ -103,7 +104,10 @@ function filtrarPuertas(auto){
     }
     return auto;
 }
-
+limpiarfiltros.addEventListener('click',limpiarFiltros)
+function limpiarFiltros(auto){
+    escribirDatos(autos)
+}
 /* poner todos los modelos sin inmportar una caracteristica particular */
 
 /* function escribit */

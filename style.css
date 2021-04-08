@@ -2,7 +2,24 @@ body{
     font-size: 16px;
     font-family: 'Rubik', sans-serif;
 }
-
+h1{
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+    z-index: 1;
+    color: rgb(231, 230, 238);
+    font-weight: 600;
+    display: inline-block;
+    font-size: 10rem;
+}
+h2{
+    margin-left: 20px;
+    margin-top: 40px;
+}
 #select__container{
     height: 35vh;
     min-width: 100%;
@@ -17,10 +34,18 @@ body{
     position: relative;
     margin: 0 auto;
 }
+
 #selects{
     position: absolute;
     margin: auto;
     bottom: -18px;
+    width: fit-content;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+    z-index: 3;
 }
 select{
     height: fit-content;
@@ -31,12 +56,19 @@ select{
     outline: none;
     border: none;
     box-shadow: -1px 1px 1px  rgba(33, 41, 33, 0.1);
+    background: white;
 }
-select:nth-child(2){
-    margin-left: 12px;
-}
-select:nth-child(3){
-    margin-left: 12px;
+
+button{
+    background: white;
+    border: none;
+    outline: none;
+    border-radius: 2px ;
+    padding: 9px 12px;
+    font-weight: 500;
+    outline: none;
+    cursor: pointer;
+    box-shadow: -1px 1px 1px  rgba(33, 41, 33, 0.1);
 }
 #resultados{
     width: 100%;
@@ -47,8 +79,7 @@ select:nth-child(3){
     flex-flow: column;
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: 12px;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 #resultados p{
@@ -56,11 +87,44 @@ select:nth-child(3){
    text-transform: capitalize;
    width: 90%;
 }
-
-@media screen and (max-width:400px){
+@media screen and (max-width:500px){
+    h1{
+        font-size: 20px;
+    }
+    #selects{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 380px;
+        margin-bottom: 2px;
+    }
     select{
-        height: fit-content;
-        padding: 3px 4px;
-        font-weight: 500;
+        padding: 1px 4px;
+    }
+    button{
+        margin-top: 12px;
+        padding: 2px 5px;
+    }
+}
+@media screen and (max-width:400px){
+    h1{
+        top: 20px;
+    }
+    #selects{
+        width: 320px;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content:space-around;
+        align-items: center;
+        height: 60px;
+        margin-bottom: -20px;
+    }
+    select{
+        padding: 2px 4px;
+    }
+    button{
+        margin-top: 12px;
+        padding: 3px 5px;
     }
 }

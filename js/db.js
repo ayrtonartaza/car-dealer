@@ -76,6 +76,12 @@ const autos =[
         epoca: 2012,
         estado:'nuevo',
         puertas:'4'
+    },
+    batimovil={
+        marca:'Wayne',
+        epoca: 2019,
+        estado:'nuevo',
+        puertas:'4'
     }
 ]
 
