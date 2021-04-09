@@ -9,6 +9,7 @@ window.addEventListener('load',evenlisteners);
 function evenlisteners (){
     escribirDatos(autos)
     llenarSelect(autos)
+    llenarSelectPuertas()
 }
 
 const datosBusqueda ={
@@ -65,7 +66,18 @@ function llenarSelect (){
         year.appendChild(option) 
     }
 }
-
+function llenarSelectPuertas(){
+    let option1 = document.createElement('option');
+    let option2= document.createElement('option');
+    option1.textContent=`4 puertas`;
+    option2.textContent=`2 puertas`;
+    option1.value=4;
+    option2.value=2;
+    let options =[option1,option2]
+    for (let i = 0; i < autos.length; i++) {
+        puertas.appendChild(options[i])
+    }
+}
 
 /* filtrar global*/
 function filtrarAuto(){
