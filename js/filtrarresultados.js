@@ -40,6 +40,7 @@ function determinarPuertas(e){
 
 function escribirDatos (autos){
     limpiarDatosHtml()
+    
     autos.forEach(i =>{
         const {marca,epoca,estado,puertas} = i;
         const autohtml = document.createElement('p');
@@ -60,10 +61,13 @@ function limpiarDatosHtml(){
 
 /* poner los valores en los selects */
 function llenarSelect (){
+    let option1 = document.createElement('option');
+    option1.textContent= 'años';
+    year.appendChild(option1)
     for (let i = 2020; i >= 2010; i--) {
-        let option = document.createElement('option');
-        option.textContent= i;
-        year.appendChild(option) 
+        let option2 = document.createElement('option');
+        option2.textContent= i;
+        year.appendChild(option2)
     }
 }
 function llenarSelectPuertas(){
@@ -78,7 +82,11 @@ function llenarSelectPuertas(){
         puertas.appendChild(options[i])
     }
 }
-
+function vaciarSelect(){
+    while(year.firstChild){
+        year.removeChild(year.firstChild)
+    }
+}
 /* filtrar global*/
 function filtrarAuto(){
     const resultado = autos.filter(filtrarEpoca).filter(filtrarEstado).filter(filtrarPuertas)
@@ -119,6 +127,8 @@ function filtrarPuertas(auto){
 limpiarfiltros.addEventListener('click',limpiarFiltros)
 function limpiarFiltros(auto){
     escribirDatos(autos)
+    vaciarSelect(autos)
+    llenarSelect(autos)
 }
 /* poner todos los modelos sin inmportar una caracteristica particular */
 
