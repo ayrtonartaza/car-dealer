@@ -19,6 +19,7 @@ const datosBusqueda ={
     puertas:''
 }
 
+
 /* escuchar selects */
 year.addEventListener('change',determinarEpoca)
 function determinarEpoca (e){
@@ -61,17 +62,27 @@ function limpiarDatosHtml(){
 
 /* poner los valores en los selects */
 function llenarSelect (){
-    let option1 = document.createElement('option');
-    option1.textContent= 'años';
-    year.appendChild(option1)
+    let option = document.createElement('option');
+    option.textContent ='años';
+    year.appendChild(option)
     for (let i = 2020; i >= 2010; i--) {
-        let option2 = document.createElement('option');
-        option2.textContent= i;
-        year.appendChild(option2)
+        let option1 = document.createElement('option');
+        option1.textContent= i;
+        year.appendChild(option1)
     }
 }
 function llenarSelectPuertas(){
-    let option1 = document.createElement('option');
+    const puertasSet = new Set();
+    autos.forEach(auto => {
+        puertasSet.add(auto.puertas)
+    })
+    puertasSet.forEach(puertaset => { 
+        let puertasoption = document.createElement('option');
+        puertasoption.textContent = puertaset;
+        puertas.appendChild(puertasoption)
+    })
+   
+    /* let option1 = document.createElement('option');
     let option2= document.createElement('option');
     option1.textContent=`4 puertas`;
     option2.textContent=`2 puertas`;
@@ -80,7 +91,7 @@ function llenarSelectPuertas(){
     let options =[option1,option2]
     for (let i = 0; i < autos.length; i++) {
         puertas.appendChild(options[i])
-    }
+    } */
 }
 function vaciarSelect(){
     while(year.firstChild){
@@ -135,3 +146,12 @@ function limpiarFiltros(auto){
 /* function escribit */
 /* nota para mi: en la funcion filtrar auto en vez de pasar el parametro ahi mismo
 se pasa en lafuncion que filtra autos.filter(item => item.epoca )*/
+
+
+/* function obtenerPuertas(){
+    console.log(autos)
+    const puertas = new Set();
+    autos.forEach(auto => puertas.add(auto.puertas))
+    console.log(puertas)
+}
+obtenerPuertas() */
